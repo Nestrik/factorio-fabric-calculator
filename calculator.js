@@ -92,8 +92,8 @@ function createArrayTr(itemKey) {
   var itemProps = getItemByName('' + itemKey);
 
   if (itemProps.factorioType == 'furnaces') {
-    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2', 'furnaces'); // стальная печь
-    var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3', 'furnaces'); // электрическая 2х2 печь
+    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3', 'furnaces'); // стальная печь
+    var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2', 'furnaces'); // электрическая 2х2 печь
 
     var f0tr = document.createElement("td");
     f0tr.append(itemProps.name);
@@ -117,9 +117,9 @@ function createArrayTr(itemKey) {
   } else if(itemProps.factorioType == 'none') {
     resultString = `${itemKey.padEnd(30)} : этот ресурс не производится`;
   } else {
-    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1');
+    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3');
     var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2');
-    var f3 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3');
+    var f3 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1');
 
     var f0tr = document.createElement("td");
     f0tr.append(itemProps.name);
@@ -143,17 +143,17 @@ function createTableHeader() {
   var headerRow = document.createElement('tr');
   calculateResultTable.append(headerRow);
   var header0 = document.createElement("td");
-  header0.append('Название предмета');
+  header0.append('Название');
   headerRow.append(header1);
 
   var header1 = document.createElement("td");
-  header1.append('Желтый 4х2 / Эл.печь 2х2 / Хим завод');
+  header1.append('Заводов_1');
   headerRow.append(header1);
   var header2 = document.createElement("td");
-  header2.append('Желтый / Эл.печь');
+  header2.append('Заводов_2');
   headerRow.append(header2);
   var header3 = document.createElement("td");
-  header3.append('Синий');
+  header3.append('Заводов_3');
   headerRow.append(header3);
 }
 

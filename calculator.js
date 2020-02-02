@@ -1,11 +1,6 @@
 var period = 60; // Время, к которому приводим производительность, секунд
 
 // Логика калькулятора
-data.items = jsonData.items;
-data.factorios = jsonData.factorios;
-data.furnaces = jsonData.furnaces;
-data.chemicalFactories = jsonData.chemicalFactories;
-
 // Достаем объект предмета из памяти
 function getItemByName(name) {
   for(item of data.items) {

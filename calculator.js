@@ -165,7 +165,7 @@ function startCalculate() {
   var selectedValue = select.options[select.selectedIndex].text;
   var selectedCount = countInput.value;
 
-  // parseAndCalculate(selectedValue, selectedCount);
+  parseAndCalculate(selectedValue, selectedCount);
 
   calculateResultTable.remove();
 

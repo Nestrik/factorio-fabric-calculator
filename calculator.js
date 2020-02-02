@@ -108,7 +108,7 @@ var calculateInput = document.getElementById("btn");
 
 function startCalculate() {
   var selectedValue = select.options[select.selectedIndex].text;
-  var selectedCount = select.value;
+  var selectedCount = countInput.value;
 
   parseAndCalculate(selectedValue, selectedCount);
 }

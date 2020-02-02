@@ -1,24 +1,14 @@
-const readline = require('readline');
+var period = 60; // Время, к которому приводим производительность, секунд
 
-const period = 60; // Время, к которому приводим производительность, секунд
-
-// Читаем файл с данными
-const allDatas = {}
-const allItemsNames = [];
-
-const jsonData = JSON.parse(data);
-allDatas.items = jsonData.items;
-allDatas.factorios = jsonData.factorios;
-allDatas.furnaces = jsonData.furnaces;
-allDatas.chemicalFactories = jsonData.chemicalFactories;
-
-for(itemData of allDatas.items) {
-  allItemsNames.push(itemData.name);
-}
+// Логика калькулятора
+data.items = jsonData.items;
+data.factorios = jsonData.factorios;
+data.furnaces = jsonData.furnaces;
+data.chemicalFactories = jsonData.chemicalFactories;
 
 // Достаем объект предмета из памяти
 function getItemByName(name) {
-  for(item of allDatas.items) {
+  for(item of data.items) {
     if(item.name == name) {
       return item;
     }
@@ -28,7 +18,7 @@ function getItemByName(name) {
 
 // Достаем объект фабрики из памяти
 function getFactorioByType(factoryName, factoryType) {
-  for (factorio of allDatas[factoryType]) {
+  for (factorio of data[factoryType]) {
     if (factorio.name == factoryName) {
       return factorio;
     }
@@ -39,8 +29,8 @@ function getFactorioByType(factoryName, factoryType) {
 // Расчитываем количество заводов определенного типа, для создания определенного количества определенных предметов
 function calculateOneItem(itemName, count, factoryName, factoryType = 'factorios') {
   // console.log('calculate item: ' + itemName)
-  const itemProps = getItemByName(itemName);
-  const factorioProps = getFactorioByType(factoryName, factoryType);
+  var itemProps = getItemByName(itemName);
+  var factorioProps = getFactorioByType(factoryName, factoryType);
 
   /* Формула: (Желаемое количество * Время одной итерации изготовления) /
    * (Период, к которому приводим * Количество изготавливаемых предметов за раз * Скорость работы завода)
@@ -49,10 +39,10 @@ function calculateOneItem(itemName, count, factoryName, factoryType = 'factorios
 }
 
 // Рекурсивно считаем количество предметов каждого типа, которые нужны
-let bufferOfAllItems = {};
+var bufferOfAllItems = {};
 
 function createTreeOfItems(itemName, count) {
-  const itemProps = getItemByName(itemName);
+  var itemProps = getItemByName(itemName);
   // console.log('tree: ' + itemName);
 
   if (itemProps.name in bufferOfAllItems) {
@@ -70,25 +60,25 @@ function createTreeOfItems(itemName, count) {
 
 //
 function createLine(itemKey) {
-  let resultString;
+  var resultString;
 
-  const itemProps = getItemByName('' + itemKey);
+  var itemProps = getItemByName('' + itemKey);
 
   if (itemProps.factorioType == 'furnaces') {
-    const f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2', 'furnaces'); // стальная печь
-    const f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3', 'furnaces'); // электрическая 2х2 печь
+    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2', 'furnaces'); // стальная печь
+    var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3', 'furnaces'); // электрическая 2х2 печь
 
     resultString = `${itemKey.padEnd(30)} : ${f2.toFixed(2).padEnd(20)} : ${f1.toFixed(2).padEnd(20)}`;
   } else if(itemProps.factorioType == 'chemicalFactories') {
-    const f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1', 'chemicalFactories'); // электрическая печь
+    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1', 'chemicalFactories'); // электрическая печь
 
     resultString = `${itemKey.padEnd(30)} : ${f1.toFixed(2).padEnd(20)}`;
   } else if(itemProps.factorioType == 'none') {
     resultString = `${itemKey.padEnd(30)} : этот ресурс не производится`;
   } else {
-    const f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1');
-    const f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2');
-    const f3 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3');
+    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1');
+    var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2');
+    var f3 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3');
 
     resultString = `${itemKey.padEnd(30)} : ${f3.toFixed(2).padEnd(20)} : ${f2.toFixed(2).padEnd(20)} : ${f1.toFixed(2).padEnd(20)}`;
   }
@@ -97,41 +87,32 @@ function createLine(itemKey) {
   return resultString;
 }
 
-// Стартуем сессию чтения терминала
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false
-});
+function parseAndCalculate(selectedValue) {
+  var itemName = elements[0].trim();
+  var count = parseInt(elements[1].trim());
 
-console.log(`Write Item Name; Count per minute [integer]`);
-console.log(`Example: Железная шестеренка; 1500`);
-console.log('================================================');
-console.log('Type: list - to show list of items');
-console.log('================================================');
-rl.on('line', function(line){
-  if (line == 'list') {
-    console.log(allItemsNames);
-  } else {
-    const elements = line.split(';');
-    const itemName = elements[0].trim();
-    const count = parseInt(elements[1].trim());
-    //const factorioName  = elements[2].trim();
+  bufferOfAllItems = {};
+  createTreeOfItems(itemName, count);
 
-    //const calculateResult = calculateOneItem(itemName, count, factorioName);
+  // console.log(bufferOfAllItems);
+  var str0 = 'Название предмета';
+  var str1 = 'Желтая 4х2 / Эл.печь';
+  var str2 = 'Желтая / Ст. печь';
+  var str3 = 'Синяя';
+  console.log(`${str0.padEnd(30)} : ${str1.padEnd(20)} : ${str2.padEnd(20)} : ${str3.padEnd(20)}`)
 
-    bufferOfAllItems = {};
-    createTreeOfItems(itemName, count);
-
-    // console.log(bufferOfAllItems);
-    const str0 = 'Название предмета';
-    const str1 = 'Желтая 4х2 / Эл.печь';
-    const str2 = 'Желтая / Ст. печь';
-    const str3 = 'Синяя';
-    console.log(`${str0.padEnd(30)} : ${str1.padEnd(20)} : ${str2.padEnd(20)} : ${str3.padEnd(20)}`)
-
-    for(itemKey of Object.keys(bufferOfAllItems)) {
-      console.log(createLine(itemKey));
-    }
+  for(itemKey of Object.keys(bufferOfAllItems)) {
+    console.log(createLine(itemKey));
   }
-})
+}
+
+// Обработка событий
+var select = document.getElementById("itemSelect");
+var countInput = document.getElementById("count");
+var calculateInput = document.getElementById("btn");
+
+function startCalculate() {
+  var selectedValue = select.options[select.selectedIndex].text;
+
+  parseAndCalculate(selectedValue);
+}

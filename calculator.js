@@ -98,22 +98,22 @@ function createArrayTr(itemKey) {
     var f0tr = document.createElement("td");
     f0tr.append(itemProps.name);
     var f1tr = document.createElement("td");
-    f1tr.append(f1);
+    f1tr.append(f1.toFixed(2));
     var f2tr = document.createElement("td");
-    f2tr.append(f2);
+    f2tr.append(f2.toFixed(2));
 
     resultArray.push(f0tr);
-    resultArray.push(f1tr.toFixed(2));
-    resultArray.push(f2tr.toFixed(2));
+    resultArray.push(f1tr);
+    resultArray.push(f2tr);
   } else if(itemProps.factorioType == 'chemicalFactories') {
     var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1', 'chemicalFactories'); // электрическая печь
     var f1tr = document.createElement("td");
-    f1tr.append(f1);
+    f1tr.append(f1.toFixed(2));
     var f0tr = document.createElement("td");
     f0tr.append(itemProps.name);
 
     resultArray.push(f0tr);
-    resultArray.push(f1tr.toFixed(2));
+    resultArray.push(f1tr);
   } else if(itemProps.factorioType == 'none') {
     resultString = `${itemKey.padEnd(30)} : этот ресурс не производится`;
   } else {
@@ -124,16 +124,16 @@ function createArrayTr(itemKey) {
     var f0tr = document.createElement("td");
     f0tr.append(itemProps.name);
     var f1tr = document.createElement("td");
-    f1tr.append(f1);
+    f1tr.append(f1.toFixed(2));
     var f2tr = document.createElement("td");
-    f2tr.append(f2);
+    f2tr.append(f2.toFixed(2));
     var f3tr = document.createElement("td");
-    f3tr.append(f3);
+    f3tr.append(f3.toFixed(2));
 
     resultArray.push(f0tr);
-    resultArray.push(f1tr.toFixed(2));
-    resultArray.push(f2tr.toFixed(2));
-    resultArray.push(f3tr.toFixed(2));
+    resultArray.push(f1tr);
+    resultArray.push(f2tr);
+    resultArray.push(f3tr);
   }
 
   return resultArray

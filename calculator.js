@@ -147,13 +147,13 @@ function createTableHeader() {
   headerRow.append(header0);
 
   var header1 = document.createElement("th");
-  header1.append('Заводов_1');
+  header1.append('Желтый 4х2<br>Эл.печь 2х2<br>Химзавод');
   headerRow.append(header1);
   var header2 = document.createElement("th");
-  header2.append('Заводов_2');
+  header2.append('Желтый<br>Эл.печь');
   headerRow.append(header2);
   var header3 = document.createElement("th");
-  header3.append('Заводов_3');
+  header3.append('Синий');
   headerRow.append(header3);
 }
 

@@ -127,24 +127,24 @@ function createTableHeader() {
   placeDiv.appendChild(selectList);
 }
 
-// function parseAndCalculate(selectedValue, selectedCount) {
-//   var itemName = selectedValue;
-//   var count = parseInt(selectedCount);
+function parseAndCalculate(selectedValue, selectedCount) {
+  var itemName = selectedValue;
+  var count = parseInt(selectedCount);
 
-//   bufferOfAllItems = {};
-//   createTreeOfItems(itemName, count);
+  bufferOfAllItems = {};
+  createTreeOfItems(itemName, count);
 
-//   // console.log(bufferOfAllItems);
-//   var str0 = 'Название предмета';
-//   var str1 = 'Желтая 4х2 / Эл.печь';
-//   var str2 = 'Желтая / Ст. печь';
-//   var str3 = 'Синяя';
-//   console.log(`${str0.padEnd(30)} : ${str1.padEnd(20)} : ${str2.padEnd(20)} : ${str3.padEnd(20)}`)
+  // console.log(bufferOfAllItems);
+  var str0 = 'Название предмета';
+  var str1 = 'Желтая 4х2 / Эл.печь';
+  var str2 = 'Желтая / Ст. печь';
+  var str3 = 'Синяя';
+  console.log(`${str0.padEnd(30)} : ${str1.padEnd(20)} : ${str2.padEnd(20)} : ${str3.padEnd(20)}`)
 
-//   for(itemKey of Object.keys(bufferOfAllItems)) {
-//     console.log(createLine(itemKey));
-//   }
-// }
+  for(itemKey of Object.keys(bufferOfAllItems)) {
+    console.log(createLine(itemKey));
+  }
+}
 
 // Обработка событий
 var select = document.getElementById("itemSelect");

@@ -174,7 +174,7 @@ function startCalculate() {
   tableBlock.appendChild(calculateResultTable);
 
   for(itemKey of Object.keys(bufferOfAllItems)) {
-    var tr = document.createElement(tr);
+    var tr = document.createElement('tr');
     var arrayOfField = createArrayTr(itemKey);
 
     for(trItem of arrayOfField) {

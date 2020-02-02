@@ -6,12 +6,12 @@
 		var data = {};
 		fetch('./data.json').then(response => { return response.json() }).then(resp => { data = resp });
 
-    allItemsNames = [];
+    var allItemsNames = [];
     for(itemData of data.items) {
       allItemsNames.push(itemData.name);
     }
 
-		const docBody = document.body;
+		var docBody = document.body;
 
 		//Create array of options to be added
 

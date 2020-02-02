@@ -3,7 +3,30 @@
 <head>
 	<script src="./calculator.js"></script>
 	<script type="text/javascript">
-		jsodData = fetch('./data.json')
+		var data = {};
+		fetch('./data.json').then(response => { return response.json() }).then(resp => { data = resp });
+
+    allItemsNames = [];
+    for(itemData of data.items) {
+      allItemsNames.push(itemData.name);
+    }
+
+		const docBody = document.body;
+
+		//Create array of options to be added
+
+		//Create and append select list
+		var selectList = document.createElement("select");
+		selectList.id = "itemSelect";
+		docBody.appendChild(selectList);
+
+		//Create and append the options
+		for (var i = 0; i < allItemsNames.length; i++) {
+			var option = document.createElement("option");
+			option.value = allItemsNames[i];
+			option.text = allItemsNames[i];
+			selectList.appendChild(option);
+		}
 	</script>
 </head>
 <body>

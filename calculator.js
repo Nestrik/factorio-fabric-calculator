@@ -142,17 +142,17 @@ function createArrayTr(itemKey) {
 function createTableHeader() {
   var headerRow = document.createElement('tr');
   calculateResultTable.append(headerRow);
-  var header0 = document.createElement("td");
+  var header0 = document.createElement("th");
   header0.append('Название');
-  headerRow.append(header1);
+  headerRow.append(header0);
 
-  var header1 = document.createElement("td");
+  var header1 = document.createElement("th");
   header1.append('Заводов_1');
   headerRow.append(header1);
-  var header2 = document.createElement("td");
+  var header2 = document.createElement("th");
   header2.append('Заводов_2');
   headerRow.append(header2);
-  var header3 = document.createElement("td");
+  var header3 = document.createElement("th");
   header3.append('Заводов_3');
   headerRow.append(header3);
 }

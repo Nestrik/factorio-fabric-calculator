@@ -142,6 +142,9 @@ function createArrayTr(itemKey) {
 function createTableHeader() {
   var headerRow = document.createElement('tr');
   calculateResultTable.append(headerRow);
+  var header0 = document.createElement("td");
+  header0.append('Название предмета');
+  headerRow.append(header1);
 
   var header1 = document.createElement("td");
   header1.append('Желтый 4х2 / Эл.печь 2х2 / Хим завод');

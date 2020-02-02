@@ -154,6 +154,8 @@ function parseAndCalculate(selectedValue, selectedCount) {
 // Обработка событий
 
 function startCalculate() {
+  select = document.getElementById("itemSelect");
+
   var selectedValue = select.options[select.selectedIndex].text;
   var selectedCount = countInput.value;
 

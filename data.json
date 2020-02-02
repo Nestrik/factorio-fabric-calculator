@@ -1,0 +1,317 @@
+{
+  "items": [
+    {
+      "name": "Медная плита",
+      "isBaseItem": true,
+      "productionTime": 3.2,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Медная руда"}
+      ],
+      "factorioType": "furnaces"
+    },
+    {
+      "name": "Железная плита",
+      "isBaseItem": true,
+      "productionTime": 3.2,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Железная руда"}
+      ],
+      "factorioType": "furnaces"
+    },
+    {
+      "name": "Каменный блок",
+      "productionTime": 3.2,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Камень", "requiredCount": 2}
+      ],
+      "factorioType": "furnaces"
+    },
+    {
+      "name": "Стальная балка",
+      "productionTime": 16,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Железная плита", "requiredCount": 5}
+      ],
+      "factorioType": "furnaces"
+    },
+    {
+      "name": "Стекло",
+      "productionTime": 4,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Песок", "requiredCount": 4}
+      ],
+      "factorioType": "furnaces"
+    },
+    {
+      "name": "Песок",
+      "productionTime": 0.5,
+      "productionCount": 2,
+      "resources": [
+        {"name": "Камень", "requiredCount": 1}
+      ]
+    },
+    {
+      "name": "Уголь",
+      "isBaseItem": true,
+      "productionTime": 1,
+      "productionCount": 1,
+      "resources": [],
+      "factorioType": "none"
+    },
+    {
+      "name": "Камень",
+      "isBaseItem": true,
+      "productionTime": 1,
+      "productionCount": 1,
+      "resources": [],
+      "factorioType": "none"
+    },
+    {
+      "name": "Смазка",
+      "isBaseItem": true,
+      "productionTime": 1,
+      "productionCount": 1,
+      "resources": [],
+      "factorioType": "none"
+    },
+    {
+      "name": "Пластик",
+      "productionTime": 1,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Уголь", "requiredCount": 1}
+      ],
+      "factorioType": "chemicalFactories"
+    },
+    {
+      "name": "Аккумулятор",
+      "productionTime": 1,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Медная плита", "requiredCount": 1},
+        {"name": "Железная плита", "requiredCount": 1}
+      ],
+      "factorioType": "chemicalFactories"
+    },
+    {
+      "name": "Медный кабель",
+      "productionTime": 0.5,
+      "productionCount": 2,
+      "resources": [
+        {"name": "Медная плита", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Железный прут",
+      "productionTime": 0.5,
+      "productionCount": 2,
+      "resources": [
+        {"name": "Железная плита", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Шестеренка",
+      "productionTime": 0.5,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Железная плита", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Мотор",
+      "productionTime": 0.6,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Железная плита", "requiredCount": 1 },
+        {"name": "Шестеренка", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Электрический мотор",
+      "productionTime": 0.8,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Мотор", "requiredCount": 1 },
+        {"name": "Медный кабель", "requiredCount": 6 }
+      ]
+    },
+    {
+      "name": "Конвеер",
+      "productionTime": 1.6,
+      "productionCount": 2,
+      "resources": [
+        {"name": "Мотор", "requiredCount": 1 },
+        {"name": "Железная плита", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Красный конвеер",
+      "productionTime": 3.7,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Конвеер", "requiredCount": 1 },
+        {"name": "Шестеренка", "requiredCount": 5 }
+      ]
+    },
+    {
+      "name": "Синий конвеер",
+      "productionTime": 0.5,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Красный конвеер", "requiredCount": 1 },
+        {"name": "Смазка", "requiredCount": 20 },
+        {"name": "Шестеренка", "requiredCount": 10 }
+      ]
+    },
+    {
+      "name": "Белый конвеер",
+      "productionTime": 10,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Медная плита", "requiredCount": 6 },
+        {"name": "Стальная балка", "requiredCount": 6 },
+        {"name": "Смазка", "requiredCount": 20 },
+        {"name": "Электрический мотор", "requiredCount": 2 }
+      ]
+    },
+    {
+      "name": "Каменная пластина",
+      "productionTime": 0.5,
+      "productionCount": 4,
+      "resources": [
+        {"name": "Каменный блок", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Электросхема",
+      "productionTime": 0.5,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Каменная пластина", "requiredCount": 1 },
+        {"name": "Медный кабель", "requiredCount": 3 }
+      ]
+    },
+    {
+      "name": "Красная электросхема",
+      "productionTime": 6,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Пластик", "requiredCount": 2 },
+        {"name": "Медный кабель", "requiredCount": 4 },
+        {"name": "Электросхема", "requiredCount": 2 }
+      ]
+    },
+    {
+      "name": "Труба",
+      "productionTime": 0.5,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Железная плита", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Твердотопливный двигатель",
+      "productionTime": 10,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Стальная балка", "requiredCount": 2 },
+        {"name": "Шестеренка", "requiredCount": 4 },
+        {"name": "Труба", "requiredCount": 2 },
+        {"name": "Мотор", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Электрический двигатель",
+      "productionTime": 10,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Твердотопливный двигатель", "requiredCount": 1 },
+        {"name": "Электрический мотор", "requiredCount": 1 },
+        {"name": "Электросхема", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Твердотопливный манипулятор",
+      "productionTime": 0.5,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Железный прут", "requiredCount": 2 },
+        {"name": "Мотор", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Манипулятор",
+      "productionTime": 0.5,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Твердотопливный манипулятор", "requiredCount": 1 },
+        {"name": "Электрический мотор", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Каркас дрона",
+      "productionTime": 20,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Стальная балка", "requiredCount": 4 },
+        {"name": "Аккумулятор", "requiredCount": 4 },
+        {"name": "Электрический двигатель", "requiredCount": 4 },
+        {"name": "Электросхема", "requiredCount": 4 }
+      ]
+    },
+    {
+      "name": "Лазерная турель",
+      "productionTime": 20,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Стальная балка", "requiredCount": 20 },
+        {"name": "Аккумулятор", "requiredCount": 12 },
+        {"name": "Стекло", "requiredCount": 20 },
+        {"name": "Электросхема", "requiredCount": 20 },
+        {"name": "Электрический мотор", "requiredCount": 5 }
+      ]
+    }
+  ],
+  "factorios": [
+    {
+      "name": "1",
+      "workSpeed": 0.75
+    },
+    {
+      "name": "2",
+      "workSpeed": 1.25
+    },
+    {
+      "name": "3",
+      "workSpeed": 2.75
+    }
+  ],
+  "furnaces": [
+    {
+      "name": "1",
+      "workSpeed": 1,
+      "description": "Каменная печь"
+    },
+    {
+      "name": "2",
+      "workSpeed": 2,
+      "description": "Стальная печь"
+    },
+    {
+      "name": "3",
+      "workSpeed": 3.2,
+      "description": "Электрическая печь + 2 ускорителя 2 уровня"
+    }
+  ],
+  "chemicalFactories": [
+    {
+      "name": "1",
+      "workSpeed": 1
+    }
+  ]
+}

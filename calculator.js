@@ -163,6 +163,7 @@ function startCalculate() {
 
   calculateResultTable = document.createElement('table');
   calculateResultTable.id = 'tableList';
+  tableBlock.appendChild(calculateResultTable);
 
   for(itemKey of Object.keys(bufferOfAllItems)) {
     let tr = document.createElement(tr);

@@ -96,7 +96,7 @@ function createArrayTr(itemKey) {
     var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3', 'furnaces'); // электрическая 2х2 печь
 
     var f1tr = document.createElement("td");
-    f1rt.append(f1);
+    f1tr.append(f1);
     var f2tr = document.createElement("td");
     f2tr.append(f2);
 

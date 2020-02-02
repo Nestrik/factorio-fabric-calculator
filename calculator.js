@@ -82,33 +82,98 @@ function createLine(itemKey) {
   return resultString;
 }
 
-function parseAndCalculate(selectedValue, selectedCount) {
-  var itemName = selectedValue;
-  var count = parseInt(selectedCount);
+function createArrayTr(itemKey) {
+  let resultArray = [];
+  var itemProps = getItemByName('' + itemKey);
 
-  bufferOfAllItems = {};
-  createTreeOfItems(itemName, count);
+  if (itemProps.factorioType == 'furnaces') {
+    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2', 'furnaces'); // стальная печь
+    var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3', 'furnaces'); // электрическая 2х2 печь
 
-  // console.log(bufferOfAllItems);
-  var str0 = 'Название предмета';
-  var str1 = 'Желтая 4х2 / Эл.печь';
-  var str2 = 'Желтая / Ст. печь';
-  var str3 = 'Синяя';
-  console.log(`${str0.padEnd(30)} : ${str1.padEnd(20)} : ${str2.padEnd(20)} : ${str3.padEnd(20)}`)
+    var f1tr = document.createElement(tr).append(f1);
+    var f2tr = document.createElement(tr).append(f2);
 
-  for(itemKey of Object.keys(bufferOfAllItems)) {
-    console.log(createLine(itemKey));
+    resultArray.push(f1tr);
+    resultArray.push(f2tr);
+  } else if(itemProps.factorioType == 'chemicalFactories') {
+    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1', 'chemicalFactories'); // электрическая печь
+    var f1tr = document.createElement(tr).append(f1);
+
+    resultArray.push(f1tr);
+  } else if(itemProps.factorioType == 'none') {
+    resultString = `${itemKey.padEnd(30)} : этот ресурс не производится`;
+  } else {
+    var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1');
+    var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2');
+    var f3 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3');
+
+    var f1tr = document.createElement(tr).append(f1);
+    var f2tr = document.createElement(tr).append(f2);
+    var f3tr = document.createElement(tr).append(f3);
+
+    resultArray.push(f1tr);
+    resultArray.push(f2tr);
+    resultArray.push(f3tr);
   }
+
+  return resultArray
 }
+
+function createTableHeader() {
+
+
+  var selectList = document.createElement("select");
+  selectList.id = "itemSelect";
+  placeDiv.appendChild(selectList);
+}
+
+// function parseAndCalculate(selectedValue, selectedCount) {
+//   var itemName = selectedValue;
+//   var count = parseInt(selectedCount);
+
+//   bufferOfAllItems = {};
+//   createTreeOfItems(itemName, count);
+
+//   // console.log(bufferOfAllItems);
+//   var str0 = 'Название предмета';
+//   var str1 = 'Желтая 4х2 / Эл.печь';
+//   var str2 = 'Желтая / Ст. печь';
+//   var str3 = 'Синяя';
+//   console.log(`${str0.padEnd(30)} : ${str1.padEnd(20)} : ${str2.padEnd(20)} : ${str3.padEnd(20)}`)
+
+//   for(itemKey of Object.keys(bufferOfAllItems)) {
+//     console.log(createLine(itemKey));
+//   }
+// }
 
 // Обработка событий
 var select = document.getElementById("itemSelect");
 var countInput = document.getElementById("count");
 var calculateInput = document.getElementById("btn");
+var tableBlock = document.getElementById('table');
+var calculateResultTable = document.getElementById('tableList');
 
 function startCalculate() {
   var selectedValue = select.options[select.selectedIndex].text;
   var selectedCount = countInput.value;
 
-  parseAndCalculate(selectedValue, selectedCount);
+  // parseAndCalculate(selectedValue, selectedCount);
+
+  calculateResultTable.remove();
+
+  calculateResultTable = document.createElement('table');
+  calculateResultTable.id = 'tableList';
+
+  for(itemKey of Object.keys(bufferOfAllItems)) {
+    let tr = document.createElement(tr);
+    let arrayOfField = createArrayTr(itemKey);
+
+    for(trItem of arrayOfField) {
+      tr.appendChild(trItem);
+    }
+
+    calculateResultTable.appendChild(tr);
+  }
+
+  tableBlock.appendChild(calculateResultTable);
 }

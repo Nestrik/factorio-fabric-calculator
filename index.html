@@ -5,6 +5,10 @@
     var data = {};
     var allItemsNames = [];
 
+    var select = document.getElementById("itemSelect");
+    var countInput = document.getElementById("count");
+    var calculateInput = document.getElementById("btn");
+
     fetch('./data.json')
       .then(response => { return response.json() })
       .then(resp => {

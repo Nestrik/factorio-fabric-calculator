@@ -82,9 +82,9 @@ function createLine(itemKey) {
   return resultString;
 }
 
-function parseAndCalculate(selectedValue) {
-  var itemName = elements[0].trim();
-  var count = parseInt(elements[1].trim());
+function parseAndCalculate(selectedValue, selectedCount) {
+  var itemName = selectedValue;
+  var count = parseInt(selectedCount);
 
   bufferOfAllItems = {};
   createTreeOfItems(itemName, count);
@@ -102,12 +102,9 @@ function parseAndCalculate(selectedValue) {
 }
 
 // Обработка событий
-var select = document.getElementById("itemSelect");
-var countInput = document.getElementById("count");
-var calculateInput = document.getElementById("btn");
-
 function startCalculate() {
   var selectedValue = select.options[select.selectedIndex].text;
+  var selectedCount = select.value;
 
-  parseAndCalculate(selectedValue);
+  parseAndCalculate(selectedValue, selectedCount);
 }

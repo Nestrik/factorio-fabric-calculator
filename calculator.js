@@ -88,21 +88,24 @@ function createLine(itemKey) {
 }
 
 function createArrayTr(itemKey) {
-  let resultArray = [];
+  var resultArray = [];
   var itemProps = getItemByName('' + itemKey);
 
   if (itemProps.factorioType == 'furnaces') {
     var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2', 'furnaces'); // стальная печь
     var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3', 'furnaces'); // электрическая 2х2 печь
 
-    var f1tr = document.createElement(tr).append(f1);
-    var f2tr = document.createElement(tr).append(f2);
+    var f1tr = document.createElement("td");
+    f1rt.append(f1);
+    var f2tr = document.createElement("td");
+    f2tr.append(f2);
 
     resultArray.push(f1tr);
     resultArray.push(f2tr);
   } else if(itemProps.factorioType == 'chemicalFactories') {
     var f1 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '1', 'chemicalFactories'); // электрическая печь
-    var f1tr = document.createElement(tr).append(f1);
+    var f1tr = document.createElement("td");
+    f1tr.append(f1);
 
     resultArray.push(f1tr);
   } else if(itemProps.factorioType == 'none') {
@@ -112,9 +115,12 @@ function createArrayTr(itemKey) {
     var f2 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '2');
     var f3 = calculateOneItem(itemKey, bufferOfAllItems[itemKey], '3');
 
-    var f1tr = document.createElement(tr).append(f1);
-    var f2tr = document.createElement(tr).append(f2);
-    var f3tr = document.createElement(tr).append(f3);
+    var f1tr = document.createElement("td");
+    f1tr.append(f1);
+    var f2tr = document.createElement("td");
+    f2tr.append(f2);
+    var f3tr = document.createElement("td");
+    f3tr.append(f3);
 
     resultArray.push(f1tr);
     resultArray.push(f2tr);
@@ -168,8 +174,8 @@ function startCalculate() {
   tableBlock.appendChild(calculateResultTable);
 
   for(itemKey of Object.keys(bufferOfAllItems)) {
-    let tr = document.createElement(tr);
-    let arrayOfField = createArrayTr(itemKey);
+    var tr = document.createElement(tr);
+    var arrayOfField = createArrayTr(itemKey);
 
     for(trItem of arrayOfField) {
       tr.appendChild(trItem);
@@ -178,5 +184,4 @@ function startCalculate() {
     calculateResultTable.appendChild(tr);
   }
 
-  tableBlock.appendChild(calculateResultTable);
 }

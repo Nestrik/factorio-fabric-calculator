@@ -102,6 +102,10 @@ function parseAndCalculate(selectedValue, selectedCount) {
 }
 
 // Обработка событий
+var select = document.getElementById("itemSelect");
+var countInput = document.getElementById("count");
+var calculateInput = document.getElementById("btn");
+
 function startCalculate() {
   var selectedValue = select.options[select.selectedIndex].text;
   var selectedCount = select.value;

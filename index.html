@@ -1,50 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script type="text/javascript">
-    var data = {};
-    var allItemsNames = [];
+  <head>
+    <script type="text/javascript">
+      var data = {};
+      var allItemsNames = [];
 
-    var select = document.getElementById("itemSelect");
-    var countInput = document.getElementById("count");
-    var calculateInput = document.getElementById("btn");
+      fetch('./data.json')
+        .then(response => { return response.json() })
+        .then(resp => {
+          data = resp;
+          for(itemData of data.items) {
+            allItemsNames.push(itemData.name);
+          }
 
-    fetch('./data.json')
-      .then(response => { return response.json() })
-      .then(resp => {
-        data = resp;
-        for(itemData of data.items) {
-          allItemsNames.push(itemData.name);
-        }
+          var placeDiv = document.getElementById('placeHere');
 
-        var placeDiv = document.getElementById('placeHere');
+          var selectList = document.createElement("select");
+          selectList.id = "itemSelect";
+          placeDiv.appendChild(selectList);
 
-        var selectList = document.createElement("select");
-        selectList.id = "itemSelect";
-        placeDiv.appendChild(selectList);
+          for (item of allItemsNames) {
+            var option = document.createElement("option");
+            option.value = item;
+            option.text = item;
+            selectList.appendChild(option);
+          }
+        });
+  	</script>
 
-        for (item of allItemsNames) {
-          var option = document.createElement("option");
-          option.value = item;
-          option.text = item;
-          selectList.appendChild(option);
-        }
-      });
-	</script>
-  <script type="text/javascript" src="./calculator.js"></script>
-</head>
-<body>
+  </head>
+  <body>
 
-<h1>Калькулятор Factorio</h1>
+    <h1>Калькулятор Factorio</h1>
 
-<div id="placeHere">
+    <div id="placeHere">
 
-</div>
-<input type="text" id="count">
-<input type="button" id="btn" value="Посчитать" onclick="startCalculate">
-<div id="table">
+    </div>
+    <input type="text" id="count">
+    <input type="button" id="btn" value="Посчитать" onclick="startCalculate">
+    <div id="table">
 
-</div>
-
-</body>
+    </div>
+    <script type="text/javascript" src="./calculator.js"></script>
+  </body>
 </html>

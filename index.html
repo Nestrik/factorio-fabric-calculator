@@ -9,7 +9,7 @@
       .then(response => { return response.json() })
       .then(resp => {
         data = resp;
-        for(itemData of reps.items) {
+        for(itemData of data.items) {
           allItemsNames.push(itemData.name);
         }
 

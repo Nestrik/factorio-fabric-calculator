@@ -1,5 +1,10 @@
 var period = 60; // Время, к которому приводим производительность, секунд
 
+var select = document.getElementById("itemSelect");
+var countInput = document.getElementById("count");
+var calculateInput = document.getElementById("btn");
+var tableBlock = document.getElementById('table');
+var calculateResultTable = document.getElementById('tableList');
 // Логика калькулятора
 // Достаем объект предмета из памяти
 function getItemByName(name) {
@@ -147,11 +152,6 @@ function parseAndCalculate(selectedValue, selectedCount) {
 }
 
 // Обработка событий
-var select = document.getElementById("itemSelect");
-var countInput = document.getElementById("count");
-var calculateInput = document.getElementById("btn");
-var tableBlock = document.getElementById('table');
-var calculateResultTable = document.getElementById('tableList');
 
 function startCalculate() {
   var selectedValue = select.options[select.selectedIndex].text;

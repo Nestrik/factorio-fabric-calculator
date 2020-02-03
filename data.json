@@ -207,6 +207,28 @@
       ]
     },
     {
+      "name": "Блок управления ракетой",
+      "productionTime": 30,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Стекло", "requiredCount": 5 },
+        {"name": "Железная плита", "requiredCount": 5 },
+        {"name": "Аккумулятор", "requiredCount": 5 },
+        {"name": "Красная электросхема", "requiredCount": 5 },
+        {"name": "Синяя электросхема", "requiredCount": 1 }
+      ]
+    },
+    {
+      "name": "Синяя электросхема",
+      "productionTime": 10,
+      "productionCount": 1,
+      "resources": [
+        {"name": "Серная кислота", "requiredCount": 5 },
+        {"name": "Красная электросхема", "requiredCount": 2 },
+        {"name": "Электросхема", "requiredCount": 20 }
+      ]
+    },
+    {
       "name": "Труба",
       "productionTime": 0.5,
       "productionCount": 1,

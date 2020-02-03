@@ -89,6 +89,14 @@
       "factorioType": "chemicalFactories"
     },
     {
+      "name": "Серная кислота",
+      "isBaseItem": true,
+      "productionTime": 1,
+      "productionCount": 1,
+      "resources": [],
+      "factorioType": "chemicalFactories"
+    },
+    {
       "name": "Аккумулятор",
       "productionTime": 1,
       "productionCount": 1,

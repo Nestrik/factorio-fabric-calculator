@@ -237,6 +237,15 @@
       ]
     },
     {
+      "name": "Зеленые банки",
+      "productionTime": 18,
+      "productionCount": 2,
+      "resources": [
+        {"name": "Конвеер", "requiredCount": 2 },
+        {"name": "Манипулятор", "requiredCount": 1 }
+      ]
+    },
+    {
       "name": "Труба",
       "productionTime": 0.5,
       "productionCount": 1,

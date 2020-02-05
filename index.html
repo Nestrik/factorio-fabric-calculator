@@ -19,6 +19,8 @@
           selectList.id = "itemSelect";
           placeDiv.appendChild(selectList);
 
+          allItemsNames.sort();
+
           for (item of allItemsNames) {
             var option = document.createElement("option");
             option.value = item;
